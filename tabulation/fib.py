@@ -12,7 +12,7 @@ def fib1(n):
 
 print(fib1(60))
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-# Memoization
+# Memoization.
 hasmap = {}
 def fib(n):
     if n in hasmap:
