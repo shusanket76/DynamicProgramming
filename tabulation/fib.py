@@ -1,7 +1,7 @@
 def fib1(n):
     table = [0 for x in range(n+1)]
     table[1] = 1
-    for x in range(len(table)-1):
+    for x in range(len(table)):
         if x+1<len(table):
             table[x+1]+=table[x]
         if x+2<len(table):
