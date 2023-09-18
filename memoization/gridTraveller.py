@@ -1,14 +1,15 @@
 hasmap = {}
-def gridTraveller(x,y):
-    if (x,y) in hasmap:
-        return hasmap[(x,y)]
-    if (y,x) in hasmap:
-        return hasmap[(y,x)]
-    if x==1 and y==1:
+def gridTraveller(m,n):
+    if (m,n) in hasmap:
+        return hasmap[(m,n)]
+    if (n,m) in hasmap:
+        return hasmap[(n,m)]
+    if m==1 and n ==1:
         return 1
-    if x==0 or y==0:
-        return 0 
-    hasmap[(x,y)] = gridTraveller(x-1,y)+gridTraveller(x,y-1)
-    return hasmap[(x,y)]
-a = gridTraveller(500,500)
+    if m==0 or n==0:
+        return 0
+    hasmap[(m,n)]= gridTraveller(m-1, n)+gridTraveller(m,n-1)
+    return hasmap[(m,n)]
+a = gridTraveller(20,20)
+
 print(a)

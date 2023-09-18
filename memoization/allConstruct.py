@@ -1,15 +1,22 @@
-
-def allConstruct(target, wordBank):
-    res = []
-    if len(target) == 0:
+hashmap = {}
+def allConstruct(words, target):
+    if target in hashmap:
+        return hashmap[target]
+    if len(target)==0:
         return [[]]
-    for x in wordBank:
-        if x == target[:len(x)]:
-            a = allConstruct(target[len(x):], wordBank)
-            if a is not None:
-                for b in a:
-                    b.insert(0,x)
-                    res.append(b)
-    return res
-a = allConstruct("purple",["purp","p","ur","le","purpl"])
+    result  =[]
+    for x in words:
+        if x == target[0:len(x)]:
+            a = allConstruct(words, target[len(x):])
+            if len(a)>=1:
+                for y in a:
+                    y.insert(0,x)
+                    result.append(y)
+    hashmap[target] = result
+    return hashmap[target]
+
+a = allConstruct(["abc", "ab", "c", "d", "e", "f", "cd","ef"], "abcdef")
+
+# a = allConstruct(["e", "ee", "eee","eeee", "eeeee", "eeeeeef"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef")
+
 print(a)

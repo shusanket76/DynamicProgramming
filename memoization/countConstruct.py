@@ -1,15 +1,18 @@
-res=[0]
-
-def countConstruct(target, wordArr):
-
+hashmap = {}
+def countConstruct(words, target):
+    if target in hashmap:
+        return hashmap[target]
     if len(target)==0:
-        res[0]+=1
-        return 
+        return 1
+    a = 0
+    for x in words:
+        if x==target[0:len(x)]:
+            a += countConstruct(words, target[len(x):])
+    hashmap[target] = a
+    return hashmap[target]
 
-    for x in wordArr:
-        if x == target[:len(x)]:
-            countConstruct(target[len(x):], wordArr)
-    
-    
-b = countConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", ["e","ee","eee","eeee","eeeee"])
-print(b)
+# a = countConstruct(["abc", "ab", "c", "d", "e", "f", "cd","ef"], "abcdef")
+
+a = countConstruct(["e", "ee", "eee","eeee", "eeeee", "eeeeee"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef")
+
+print(a)

@@ -1,18 +1,17 @@
-hasmap = {}
-def canConstruct(word, wordArr):
-    if word in hasmap:
+hashmap = {}
+def canConstruct(words, target):
+    if target in hashmap:
         return False
-    if len(word)==0:
+    if len(target) == 0:
         return True
-    for x in wordArr:
-        if x==word[:len(x)]:
-            a = canConstruct(word[len(x):], wordArr)
-            if a is True:
+    for x in words:
+        if x == target[0:len(x)]:
+            if canConstruct(words, target[len(x):]):
+            
                 return True
-    hasmap[word] = False
+    hashmap[target] = False
     return False
 
 
-a = canConstruct("abcdef", ["ab","abcd","cd","def","abcd"])
-b = canConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", ["e","ee","eee","eeee","eeeee"])
-print(b)
+a = canConstruct(["e", "ee", "eee","eeee", "eeeee", "eeeeeef"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef")
+print(a)
