@@ -18,6 +18,6 @@ def allConstruct(target, alphabets):
     hasmap[target] = allcombinations
     return hasmap[target]
 
-# a = allConstruct("abcdef", ["ab","abc", "cd","def","abcd", "ef","c"])
-a = allConstruct("aaaaaaaaaaaaaaaaaaaaaz", ["a","aa","aaa","aaaa","aaaaaa"])
+a = allConstruct("abcdef", ["ab","abc", "cd","def","abcd", "ef","c"])
+# a = allConstruct("aaaaaaaaaaaaaaaaaaaaaz", ["a","aa","aaa","aaaa","aaaaaa"])
 print(a)
