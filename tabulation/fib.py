@@ -10,4 +10,4 @@ def fib(n):
 
     return table[n]
 
-print(fib(6))
+print(fib(10000))
