@@ -20,17 +20,21 @@
 
 # a = canSum(7,[5,4])
 # print(a)
-
+hasmap = {}
 def canSum(target, numbers):
+    if target in hasmap:
+        return hasmap[target]
     if target<0:
         return 
     if target==0:
         return True
     for x in numbers:
-        if canSum(target-x, numbers) is True:
+        hasmap[target] = canSum(target-x, numbers)
+        if hasmap[target] is True:
             return True
+    hasmap[target] = False
     return False
 
 
-a = canSum(7,[2,3,7])
+a = canSum(900,[1,2])
 print(a)
